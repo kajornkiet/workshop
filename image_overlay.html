@@ -16,10 +16,15 @@
 	    }
 	  </style>
 </head>
+
 <body>
 <div id='map'></div>
+
 <script>
+  //
 	var map = L.map('map');
+
+	// Add Basemap
 	var Stamen_TonerLite = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.{ext}', {
 		attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		subdomains: 'abcd',
@@ -28,12 +33,15 @@
 		ext: 'png'
 	}).addTo(map);
 
+  //
 	var imageUrls = [
 		'image/wave_168hr.gif'
 	],
+	//
 	bounds = L.latLngBounds([[22.543789,  93.593127], [1.508690,111.844414]]);
 	map.fitBounds(bounds);
 
+  // Add Image Overlay
 	var overlay = L.imageOverlay(imageUrls, bounds, {
 		opacity: 0.7,
 		attribution: 'Wave forecast &copy; <a href="http://web.thaiwater.net/thaiwater30/">HAII</a>',
@@ -41,6 +49,7 @@
 		autoplay: false
 	});
 	map.addLayer(overlay);
+
 </script>
 </body>
 </html>
